@@ -231,3 +231,104 @@ from collections import namedtuple
 #
 # Topshiriq:
 # 1 dan 20 gacha faqat juft sonlarni qaytaradigan iterator klass yarating.
+
+# class MyRange:
+#     def __init__(self, start, end, step):
+#         self.start = start
+#         self.end = end
+#         self.step = step
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if self.start < self.end:
+#             self.start += self.step
+#         else:
+#             raise StopIteration
+#         return self.start -1
+#
+#
+# numbers = MyRange(1, 20, 2)
+#
+# for i in numbers:
+#     print(i)
+
+# 12. Teskari iterator
+# Topshiriq:
+# Ro‘yxatni oxiridan boshiga qarab aylanuvchi iterator yarating.
+
+# class MyRange:
+#     def __init__(self, start, end, step):
+#         self.start = start
+#         self.end = end
+#         self.step = step
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if self.start < self.end:
+#             self.end -= self.step
+#         else:
+#             raise StopIteration
+#         return self.end
+#
+#
+# numbers = MyRange(10, 40, 10)
+# num = []
+# for i in numbers:
+#     num.append(i)
+# print(num)
+
+# 13. Iterator + shart             Ishlalmadim!!!
+#
+# Topshiriq:
+# Ro‘yxatdan faqat 5 dan katta sonlarni qaytaradigan iterator yozing.
+#
+# class Katta:
+#     def __init__(self, l):
+#         self.l = l
+#         self.index = 0
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         while self.index < len(self.l):
+#             self.index += 1
+#
+#
+#
+# l = [2, 2, 6, 88, 1, -9, -10]
+# num = Katta(l)
+# print(list(num))
+
+# 14. Faqat har ikkinchi element
+# Topshiriq:
+# Ro‘yxatdan faqat har ikkinchi elementni qaytaradigan iterator yarating.
+# 📌 Misol:
+# [10, 20, 30, 40, 50] → 20, 40
+
+class MyList:
+    def __init__(self, num, index):
+        self.num = num
+        self.index = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.start < self.end:
+            self.start += self.step
+            self.index += 1
+        else:
+            raise StopIteration
+        return self.start -1
+
+
+num = [10, 20, 30, 40, 50]
+numbers = MyList(num)
+
+for i in numbers:
+    print(i)
